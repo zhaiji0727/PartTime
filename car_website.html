@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Car Company</title>
+    <style>
+        /* CSS 样式 */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input[type="text"],
+        select {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>My Car Company</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" id="homeLink">Home</a></li>
+            <li><a href="#" id="browseLink">Browse By</a></li>
+            <li><a href="#" id="compareLink">Compare</a></li>
+        </ul>
+    </nav>
+    <section id="content">
+        <!-- 默认显示的内容为所有汽车信息 -->
+        <h2>所有汽车信息</h2>
+        <div id="carList">
+            <!-- 这里显示所有汽车信息 -->
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 My Car Company</p>
+    </footer>
+
+    <script>
+        // 汽车数据
+        const cars = [
+            { make: '丰田', model: '卡罗拉', price: 20000, year: 2022, fuelType: '汽油', engine: '1.8L四缸', transmission: '手动' },
+            { make: '丰田', model: '凯美瑞', price: 30000, year: 2023, fuelType: '混合动力', engine: '2.5L四缸', transmission: '自动' },
+            { make: '本田', model: '雅阁', price: 25000, year: 2021, fuelType: '混合动力', engine: '2.0L四缸', transmission: '自动' },
+            { make: '本田', model: '思域', price: 22000, year: 2022, fuelType: '汽油', engine: '1.5L四缸', transmission: '手动' },
+            { make: '奥迪', model: 'A4', price: 35000, year: 2023, fuelType: '汽油', engine: '2.0T四缸', transmission: '自动' },
+            { make: '奥迪', model: 'Q5', price: 45000, year: 2022, fuelType: '柴油', engine: '3.0T V6', transmission: '自动' },
+            { make: '宝马', model: '3系', price: 40000, year: 2023, fuelType: '柴油', engine: '2.0L四缸', transmission: '自动' },
+            { make: '宝马', model: 'X5', price: 55000, year: 2022, fuelType: '混合动力', engine: '3.0L V6', transmission: '自动' },
+            // 添加更多汽车数据
+        ];
+
+
+
+        // 显示主页
+        function showHomePage() {
+            const contentSection = document.getElementById('content');
+            contentSection.innerHTML = `
+                <h2>所有汽车信息</h2>
+                <div id="carList">
+                    <!-- 这里显示所有汽车信息 -->
+                </div>
+            `;
+            showAllCars(); // 在主页显示所有汽车信息
+        }
+
+        // 显示所有汽车信息
+        function showAllCars() {
+            const carListDiv = document.getElementById('carList');
+            carListDiv.innerHTML = '';
+
+            cars.forEach(car => {
+                const carDiv = document.createElement('div');
+                carDiv.innerHTML = `
+                    <p>品牌: ${car.make}</p>
+                    <p>型号: ${car.model}</p>
+                    <p>价格: ￥${car.price}</p>
+                    <p>年份: ${car.year}</p>
+                    <p>燃料类型: ${car.fuelType}</p>
+                    <p>发动机: ${car.engine}</p>
+                    <p>变速器: ${car.transmission}</p>
+                `;
+                carDiv.style.border = '1px solid #ccc';
+                carDiv.style.padding = '10px';
+                carDiv.style.marginBottom = '20px';
+                carListDiv.appendChild(carDiv);
+            });
+        }
+
+        // 显示浏览界面
+        function showBrowsePage() {
+            const contentSection = document.getElementById('content');
+            contentSection.innerHTML = `
+                <h2>条件筛选</h2>
+                <div>
+                    <label for="make">品牌:</label>
+                    <select id="make">
+                        <option value="all">全部</option>
+                        <option value="丰田">丰田</option>
+                        <option value="本田">本田</option>
+                        <option value="奥迪">奥迪</option>
+                        <option value="宝马">宝马</option>
+                        <!-- 添加更多选项 -->
+                    </select>
+                </div>
+                <div>
+                    <label for="minPrice">最低价格:</label>
+                    <input type="text" id="minPrice" placeholder="最低价格">
+                </div>
+                <div>
+                    <label for="maxPrice">最高价格:</label>
+                    <input type="text" id="maxPrice" placeholder="最高价格">
+                </div>
+                <div id="filteredCarList"></div>
+            `;
+
+            // 添加筛选汽车功能
+            document.getElementById('make').addEventListener('change', filterCars);
+            document.getElementById('minPrice').addEventListener('input', filterCars);
+            document.getElementById('maxPrice').addEventListener('input', filterCars);
+
+            // 默认加载所有汽车
+            showAllCars();
+        }
+
+        // 筛选汽车
+        function filterCars() {
+            const make = document.getElementById('make').value;
+            const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+            const maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+
+            let filteredCars = cars;
+
+            if (make !== 'all') {
+                filteredCars = filteredCars.filter(car => car.make === make);
+            }
+
+            filteredCars = filteredCars.filter(car => car.price >= minPrice && car.price <= maxPrice);
+
+            showFilteredCars(filteredCars);
+        }
+
+        // 显示筛选后的汽车信息
+        function showFilteredCars(filteredCars) {
+            const filteredCarListDiv = document.getElementById('filteredCarList');
+            filteredCarListDiv.innerHTML = '';
+
+            if (filteredCars.length === 0) {
+                filteredCarListDiv.textContent = '未找到匹配的汽车';
+                return;
+            }
+
+            filteredCars.forEach(car => {
+                const carDiv = document.createElement('div');
+                carDiv.innerHTML = `
+                    <p>品牌: ${car.make}</p>
+                    <p>型号: ${car.model}</p>
+                    <p>价格: ￥${car.price}</p>
+                    <p>年份: ${car.year}</p>
+                    <p>燃料类型: ${car.fuelType}</p>
+                    <p>发动机: ${car.engine}</p>
+                    <p>变速器: ${car.transmission}</p>
+                `;
+                carDiv.style.border = '1px solid #ccc';
+                carDiv.style.padding = '10px';
+                carDiv.style.marginBottom = '20px';
+                filteredCarListDiv.appendChild(carDiv);
+            });
+        }
+
+        // 显示比较界面
+        function showComparePage() {
+            const contentSection = document.getElementById('content');
+            contentSection.innerHTML = `
+                <h2>选择要比较的汽车</h2>
+                <div>
+                    <label for="car1">汽车 1:</label>
+                    <select id="car1">
+                        <option value="">请选择汽车</option>
+                        <!-- 添加所有汽车作为选项 -->
+                    </select>
+                    <br>
+                    <label for="car2">汽车 2:</label>
+                    <select id="car2">
+                        <option value="">请选择汽车</option>
+                        <!-- 添加所有汽车作为选项 -->
+                    </select>
+                    <br>
+                    <button onclick="compareCars()">比较</button>
+                    <div id="comparisonResult"></div>
+                </div>
+            `;
+
+            // 填充汽车选项
+            const carSelect1 = document.getElementById('car1');
+            const carSelect2 = document.getElementById('car2');
+
+            cars.forEach((car, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${car.make} ${car.model}`;
+                carSelect1.appendChild(option.cloneNode(true));
+                carSelect2.appendChild(option);
+            });
+        }
+
+        // 比较两款汽车
+        function compareCars() {
+            const carIndex1 = document.getElementById('car1').value;
+            const carIndex2 = document.getElementById('car2').value;
+
+            if (carIndex1 === '' || carIndex2 === '') {
+                document.getElementById('comparisonResult').textContent = '请选择两款汽车进行比较';
+                return;
+            }
+
+            const car1 = cars[carIndex1];
+            const car2 = cars[carIndex2];
+
+            // 显示比较结果
+            const comparisonResultDiv = document.getElementById('comparisonResult');
+            comparisonResultDiv.innerHTML = `
+                <h3>${car1.make} ${car1.model} vs ${car2.make} ${car2.model}</h3>
+                <p>汽车 1:</p>
+                <ul>
+                    <li>品牌: ${car1.make}</li>
+                    <li>型号: ${car1.model}</li>
+                    <li>价格: ￥${car1.price}</li>
+                    <li>年份: ${car1.year}</li>
+                    <li>燃料类型: ${car1.fuelType}</li>
+                    <li>发动机: ${car1.engine}</li>
+                    <li>变速器: ${car1.transmission}</li>
+                </ul>
+                <p>汽车 2:</p>
+                <ul>
+                    <li>品牌: ${car2.make}</li>
+                    <li>型号: ${car2.model}</li>
+                    <li>价格: ￥${car2.price}</li>
+                    <li>年份: ${car2.year}</li>
+                    <li>燃料类型: ${car2.fuelType}</li>
+                    <li>发动机: ${car2.engine}</li>
+                    <li>变速器: ${car2.transmission}</li>
+                </ul>
+            `;
+        }
+
+
+        // 设置链接点击事件
+        document.getElementById('homeLink').addEventListener('click', function (event) {
+            event.preventDefault();
+            showHomePage(); // 点击 "Home" 时显示主页
+        });
+        document.getElementById('browseLink').addEventListener('click', showBrowsePage);
+        document.getElementById('compareLink').addEventListener('click', showComparePage);
+
+        // 默认显示所有汽车信息
+        window.onload = showHomePage;
+    </script>
+</body>
+
+</html>
