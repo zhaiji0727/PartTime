@@ -80,19 +80,3 @@ footer {
     bottom: 0;
     width: 100%;
 }
-
-.car {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.car p {
-    margin: 5px 0;
-}
-
-.car h3 {
-    color: #333;
-}

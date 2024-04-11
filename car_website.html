@@ -212,31 +212,53 @@
             const car1 = cars[carIndex1];
             const car2 = cars[carIndex2];
 
-            // 显示比较结果
+            // 构建比较结果表格
             const comparisonResultDiv = document.getElementById('comparisonResult');
             comparisonResultDiv.innerHTML = `
-                <h3>${car1.make} ${car1.model} vs ${car2.make} ${car2.model}</h3>
-                <p>汽车 1:</p>
-                <ul>
-                    <li>品牌: ${car1.make}</li>
-                    <li>型号: ${car1.model}</li>
-                    <li>价格: ￥${car1.price}</li>
-                    <li>年份: ${car1.year}</li>
-                    <li>燃料类型: ${car1.fuelType}</li>
-                    <li>发动机: ${car1.engine}</li>
-                    <li>变速器: ${car1.transmission}</li>
-                </ul>
-                <p>汽车 2:</p>
-                <ul>
-                    <li>品牌: ${car2.make}</li>
-                    <li>型号: ${car2.model}</li>
-                    <li>价格: ￥${car2.price}</li>
-                    <li>年份: ${car2.year}</li>
-                    <li>燃料类型: ${car2.fuelType}</li>
-                    <li>发动机: ${car2.engine}</li>
-                    <li>变速器: ${car2.transmission}</li>
-                </ul>
-            `;
+        <h3>${car1.make} ${car1.model} vs ${car2.make} ${car2.model}</h3>
+        <table border="1"> <!-- 添加 border 属性 -->
+            <tr>
+                <th>属性</th>
+                <th>${car1.make} ${car1.model}</th>
+                <th>${car2.make} ${car2.model}</th>
+            </tr>
+            <tr>
+                <td>品牌</td>
+                <td>${car1.make}</td>
+                <td>${car2.make}</td>
+            </tr>
+            <tr>
+                <td>型号</td>
+                <td>${car1.model}</td>
+                <td>${car2.model}</td>
+            </tr>
+            <tr>
+                <td>价格</td>
+                <td>￥${car1.price}</td>
+                <td>￥${car2.price}</td>
+            </tr>
+            <tr>
+                <td>年份</td>
+                <td>${car1.year}</td>
+                <td>${car2.year}</td>
+            </tr>
+            <tr>
+                <td>燃料类型</td>
+                <td>${car1.fuelType}</td>
+                <td>${car2.fuelType}</td>
+            </tr>
+            <tr>
+                <td>发动机</td>
+                <td>${car1.engine}</td>
+                <td>${car2.engine}</td>
+            </tr>
+            <tr>
+                <td>变速器</td>
+                <td>${car1.transmission}</td>
+                <td>${car2.transmission}</td>
+            </tr>
+        </table>
+    `;
         }
 
 
