@@ -80,3 +80,15 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+/* 白天模式样式 */
+body {
+    background-color: white;
+    color: black;
+}
+
+/* 夜间模式样式 */
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
