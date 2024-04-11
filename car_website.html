@@ -63,9 +63,15 @@
         function showAllCars() {
             const carListDiv = document.getElementById('carList');
             carListDiv.innerHTML = '';
+            carListDiv.style.display = 'grid'; // 启用 Grid 布局
+            carListDiv.style.gridTemplateColumns = 'repeat(2, 1fr)'; // 创建两列，每列宽度相等
+            carListDiv.style.gap = '10px'; // 设置网格间距
 
             cars.forEach(car => {
                 const carDiv = document.createElement('div');
+                carDiv.style.border = '1px solid black'; // 添加边框
+                carDiv.style.padding = '10px'; // 添加内边距
+                carDiv.style.backgroundColor = '#f8f9fa'; // 添加背景颜色
                 carDiv.innerHTML = `
                     <p>品牌: ${car.make}</p>
                     <p>型号: ${car.model}</p>
@@ -137,6 +143,12 @@
 
         // 显示筛选后的汽车信息
         function showFilteredCars(filteredCars) {
+            const carListDiv = document.getElementById('filteredCarList');
+            carListDiv.innerHTML = '';
+            carListDiv.style.display = 'grid'; // 启用 Grid 布局
+            carListDiv.style.gridTemplateColumns = 'repeat(2, 1fr)'; // 创建两列，每列宽度相等
+            carListDiv.style.gap = '10px'; // 设置网格间距
+
             const filteredCarListDiv = document.getElementById('filteredCarList');
             filteredCarListDiv.innerHTML = '';
 
@@ -147,6 +159,9 @@
 
             filteredCars.forEach(car => {
                 const carDiv = document.createElement('div');
+                carDiv.style.border = '1px solid black'; // 添加边框
+                carDiv.style.padding = '10px'; // 添加内边距
+                carDiv.style.backgroundColor = '#f8f9fa'; // 添加背景颜色
                 carDiv.innerHTML = `
                     <p>品牌: ${car.make}</p>
                     <p>型号: ${car.model}</p>
@@ -156,10 +171,8 @@
                     <p>发动机: ${car.engine}</p>
                     <p>变速器: ${car.transmission}</p>
                 `;
-                carDiv.style.border = '1px solid #ccc';
-                carDiv.style.padding = '10px';
-                carDiv.style.marginBottom = '20px';
-                filteredCarListDiv.appendChild(carDiv);
+                
+                carListDiv.appendChild(carDiv);
             });
         }
 
