@@ -76,10 +76,8 @@ footer {
     color: #fff;
     padding: 10px;
     text-align: center;
-    position: fixed;
     bottom: 0;
     width: 100%;
-    height: 25px;
 }
 
 /* 白天模式样式 */
@@ -95,7 +93,7 @@ body.dark-mode {
 }
 
 .car-details-container {
-    width: 400px;
+    width: 500px;
     /* 设置容器的宽度 */
     height: auto;
     /* 设置容器的高度 */
@@ -115,4 +113,42 @@ body.dark-mode {
     /* 设置 canvas 宽度为容器宽度的100% */
     height: 200px;
     /* 设置 canvas 高度 */
+}
+
+.discussion-area {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.comment-form {
+    margin-bottom: 10px;
+}
+
+.comment-form textarea {
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.comment-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.comment-list li {
+    margin-bottom: 10px;
 }

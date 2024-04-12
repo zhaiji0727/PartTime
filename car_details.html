@@ -11,7 +11,7 @@
 
 <body>
     <header style="text-align: center;">
-        <h1>My Car Company</h1>
+        <h1 onclick="window.location.href='car_website.html'">My Car Company</h1>
     </header>
     <h1 id="carTitle">汽车详情</h1>
 
@@ -27,40 +27,57 @@
                 engine: '1.8L四缸',
                 transmission: '手动',
                 image: './src/images/car1.jpg',
-                priceData: [18000, 19000, 20000, 21000, 22000, 23000]
+                priceData: [21000, 22000, 23000, 19000, 18000, 20000],
+                comments: [
+                    { author: '小明', timestamp: '2024-04-12 09:00', content: '这辆车看起来很酷！' },
+                    { author: '小红', timestamp: '2024-04-12 09:30', content: '价格好像有点高啊...' },
+                    { author: '小刚', timestamp: '2024-04-12 10:00', content: '我喜欢这款车的设计！' }
+                ]
             },
             {
                 make: '丰田',
                 model: '凯美瑞',
-                price: 30000,
+                price: 32000,
                 year: 2023,
                 fuelType: '混合动力',
                 engine: '2.5L四缸',
                 transmission: '自动',
                 image: './src/images/car2.jpg',
-                priceData: [28000, 29000, 30000, 31000, 32000, 33000]
+                priceData: [31000, 30000, 33000, 28000, 29000, 32000],
+                comments: [
+                    { author: '小王', timestamp: '2024-04-12 11:00', content: '这款车的燃油经济性怎么样？' },
+                    { author: '小张', timestamp: '2024-04-12 11:30', content: '有没有安全配置？' }
+                ]
             },
             {
                 make: '本田',
                 model: '雅阁',
-                price: 25000,
+                price: 26000,
                 year: 2021,
                 fuelType: '混合动力',
                 engine: '2.0L四缸',
                 transmission: '自动',
                 image: './src/images/car3.jpg',
-                priceData: [23000, 24000, 25000, 26000, 27000, 28000]
+                priceData: [24000, 27000, 25000, 28000, 23000, 26000],
+                comments: [
+                    { author: '小李', timestamp: '2024-04-12 12:00', content: '这车的舒适性怎么样？' },
+                    { author: '小王', timestamp: '2024-04-12 12:30', content: '内部空间够大吗？' }
+                ]
             },
             {
                 make: '本田',
                 model: '思域',
-                price: 22000,
+                price: 24000,
                 year: 2022,
                 fuelType: '汽油',
                 engine: '1.5L四缸',
                 transmission: '手动',
                 image: './src/images/car4.jpg',
-                priceData: [20000, 21000, 22000, 23000, 24000, 25000]
+                priceData: [22000, 20000, 25000, 23000, 21000, 24000],
+                comments: [
+                    { author: '小张', timestamp: '2024-04-12 13:00', content: '这款车的操控性怎么样？' },
+                    { author: '小刘', timestamp: '2024-04-12 13:30', content: '有没有运动版的配置？' }
+                ]
             },
             {
                 make: '奥迪',
@@ -71,7 +88,11 @@
                 engine: '2.0T四缸',
                 transmission: '自动',
                 image: './src/images/car5.jpg',
-                priceData: [33000, 34000, 35000, 36000, 37000, 38000]
+                priceData: [36000, 38000, 33000, 34000, 37000, 35000],
+                comments: [
+                    { author: '小王', timestamp: '2024-04-12 14:00', content: '这款车的内饰怎么样？' },
+                    { author: '小李', timestamp: '2024-04-12 14:30', content: '后排空间够大吗？' }
+                ]
             },
             {
                 make: '奥迪',
@@ -82,30 +103,42 @@
                 engine: '3.0T V6',
                 transmission: '自动',
                 image: './src/images/car6.jpg',
-                priceData: [43000, 44000, 45000, 46000, 47000, 48000]
+                priceData: [46000, 44000, 47000, 43000, 48000, 45000],
+                comments: [
+                    { author: '小刚', timestamp: '2024-04-12 15:00', content: '这辆车的性能怎么样？' },
+                    { author: '小明', timestamp: '2024-04-12 15:30', content: '能不能说说车内的科技配置？' }
+                ]
             },
             {
                 make: '宝马',
                 model: '3系',
-                price: 40000,
+                price: 41000,
                 year: 2023,
                 fuelType: '柴油',
                 engine: '2.0L四缸',
                 transmission: '自动',
                 image: './src/images/car7.jpg',
-                priceData: [38000, 39000, 40000, 41000, 42000, 43000]
+                priceData: [42000, 40000, 39000, 38000, 43000, 41000],
+                comments: [
+                    { author: '小红', timestamp: '2024-04-12 16:00', content: '这款车的性价比怎么样？' },
+                    { author: '小刘', timestamp: '2024-04-12 16:30', content: '有没有运动版的配置？' }
+                ]
             },
             {
                 make: '宝马',
                 model: 'X5',
-                price: 55000,
+                price: 58000,
                 year: 2022,
                 fuelType: '混合动力',
                 engine: '3.0L V6',
                 transmission: '自动',
                 image: './src/images/car8.jpg',
-                priceData: [53000, 54000, 55000, 56000, 57000, 58000]
-            },
+                priceData: [55000, 57000, 54000, 53000, 56000, 58000],
+                comments: [
+                    { author: '小张', timestamp: '2024-04-12 17:00', content: '这款车的越野性能怎么样？' },
+                    { author: '小李', timestamp: '2024-04-12 17:30', content: '能不能说说省油性能？' }
+                ]
+            }
             // 添加更多汽车数据
         ];
 
@@ -179,7 +212,7 @@
             new Chart(priceChartContext, {
                 type: 'line',
                 data: {
-                    labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                    labels: ['2023.11', '2023.12', '2024.1', '2024.2', '2024.3', '2024.4'],
                     datasets: [{
                         label: '价格波动',
                         data: matchedCar.priceData,
@@ -202,6 +235,59 @@
                     }
                 }
             });
+
+            // 创建讨论区
+            const discussionArea = document.createElement('div');
+            discussionArea.classList.add('discussion-area');
+
+            // 添加标题
+            const discussionTitle = document.createElement('h2');
+            discussionTitle.innerText = '讨论区';
+            discussionArea.appendChild(discussionTitle);
+
+            // 创建评论表单
+            const commentForm = document.createElement('form');
+            commentForm.classList.add('comment-form');
+
+            // 创建评论输入框
+            const commentInput = document.createElement('textarea');
+            commentInput.setAttribute('rows', '4');
+            commentInput.setAttribute('cols', '50');
+            commentInput.setAttribute('placeholder', '发表评论...');
+            commentForm.appendChild(commentInput);
+
+            // 创建提交按钮
+            const submitButton = document.createElement('button');
+            submitButton.setAttribute('type', 'submit');
+            submitButton.innerText = '提交';
+            commentForm.appendChild(submitButton);
+
+            // 添加评论表单到讨论区
+            discussionArea.appendChild(commentForm);
+
+            // 加载评论
+            const commentList = document.createElement('ul');
+            commentList.classList.add('comment-list');
+            matchedCar.comments.forEach(comment => {
+                const commentItem = document.createElement('li');
+                const commentInfo = document.createElement('div');
+                commentInfo.classList.add('comment-info');
+                commentInfo.innerHTML = `<strong>${comment.author}</strong> 发布于 ${comment.timestamp}`;
+                const commentContent = document.createElement('div');
+                commentContent.classList.add('comment-content');
+                commentContent.innerText = comment.content;
+                commentItem.appendChild(commentInfo);
+                commentItem.appendChild(commentContent);
+                commentList.appendChild(commentItem);
+            });
+
+            // 添加评论列表到讨论区
+            discussionArea.appendChild(commentList);
+
+            // 将讨论区添加到汽车详情容器中
+            carDetailsContainer.appendChild(discussionArea);
+
+
         } else {
             carTitle.innerText = '未找到匹配的汽车';
         }
@@ -209,6 +295,9 @@
 
     </script>
 
+    <footer>
+        <p>© 2024 My Car Company</p>
+    </footer>
 
 </body>
 
