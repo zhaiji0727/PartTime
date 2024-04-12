@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Car Company</title>
+    <link rel="stylesheet" href="styles.css"> <!-- 链接外部样式表 -->
+    <script src="./chart.js"></script>
+</head>
+
+<body>
+    <header style="text-align: center;">
+        <h1>My Car Company</h1>
+    </header>
+    <h1 id="carTitle">汽车详情</h1>
+
+    <script>
+        // 汽车数据
+        const cars = [
+            {
+                make: '丰田',
+                model: '卡罗拉',
+                price: 20000,
+                year: 2022,
+                fuelType: '汽油',
+                engine: '1.8L四缸',
+                transmission: '手动',
+                image: './src/images/car1.jpg',
+                priceData: [18000, 19000, 20000, 21000, 22000, 23000]
+            },
+            {
+                make: '丰田',
+                model: '凯美瑞',
+                price: 30000,
+                year: 2023,
+                fuelType: '混合动力',
+                engine: '2.5L四缸',
+                transmission: '自动',
+                image: './src/images/car2.jpg',
+                priceData: [28000, 29000, 30000, 31000, 32000, 33000]
+            },
+            {
+                make: '本田',
+                model: '雅阁',
+                price: 25000,
+                year: 2021,
+                fuelType: '混合动力',
+                engine: '2.0L四缸',
+                transmission: '自动',
+                image: './src/images/car3.jpg',
+                priceData: [23000, 24000, 25000, 26000, 27000, 28000]
+            },
+            {
+                make: '本田',
+                model: '思域',
+                price: 22000,
+                year: 2022,
+                fuelType: '汽油',
+                engine: '1.5L四缸',
+                transmission: '手动',
+                image: './src/images/car4.jpg',
+                priceData: [20000, 21000, 22000, 23000, 24000, 25000]
+            },
+            {
+                make: '奥迪',
+                model: 'A4',
+                price: 35000,
+                year: 2023,
+                fuelType: '汽油',
+                engine: '2.0T四缸',
+                transmission: '自动',
+                image: './src/images/car5.jpg',
+                priceData: [33000, 34000, 35000, 36000, 37000, 38000]
+            },
+            {
+                make: '奥迪',
+                model: 'Q5',
+                price: 45000,
+                year: 2022,
+                fuelType: '柴油',
+                engine: '3.0T V6',
+                transmission: '自动',
+                image: './src/images/car6.jpg',
+                priceData: [43000, 44000, 45000, 46000, 47000, 48000]
+            },
+            {
+                make: '宝马',
+                model: '3系',
+                price: 40000,
+                year: 2023,
+                fuelType: '柴油',
+                engine: '2.0L四缸',
+                transmission: '自动',
+                image: './src/images/car7.jpg',
+                priceData: [38000, 39000, 40000, 41000, 42000, 43000]
+            },
+            {
+                make: '宝马',
+                model: 'X5',
+                price: 55000,
+                year: 2022,
+                fuelType: '混合动力',
+                engine: '3.0L V6',
+                transmission: '自动',
+                image: './src/images/car8.jpg',
+                priceData: [53000, 54000, 55000, 56000, 57000, 58000]
+            },
+            // 添加更多汽车数据
+        ];
+
+        // 获取URL中的查询参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const make = urlParams.get('make');
+        const model = urlParams.get('model');
+
+        // 在控制台打印查询参数
+        console.log('make:', make);
+        console.log('model:', model);
+
+        // 查找匹配的汽车数据
+        let matchedCar = null;
+        for (const car of cars) {
+            if (car.make === make && car.model === model) {
+                matchedCar = car;
+                break;
+            }
+        }
+
+        // 在网页中展示汽车详情
+        const carTitle = document.getElementById('carTitle');
+        if (matchedCar) {
+            carTitle.innerText = `${matchedCar.make} ${matchedCar.model} 详情`;
+
+            // 创建一个容器来包含汽车图片和其他信息
+            const carDetailsContainer = document.createElement('div');
+            carDetailsContainer.classList.add('car-details-container');
+
+            // 创建图片元素
+            const imageElement = document.createElement('img');
+            imageElement.src = matchedCar.image;
+            imageElement.alt = `${matchedCar.make} ${matchedCar.model}`;
+            carDetailsContainer.appendChild(imageElement);
+
+            // 创建一个包含汽车信息的列表
+            const carInfoList = document.createElement('ul');
+
+            // 创建包含汽车信息的数组
+            const carInfo = [
+                `品牌: ${matchedCar.make}`,
+                `型号: ${matchedCar.model}`,
+                `价格: ￥${matchedCar.price}`,
+                `年份: ${matchedCar.year}`,
+                `燃料类型: ${matchedCar.fuelType}`,
+                `发动机: ${matchedCar.engine}`,
+                `变速器: ${matchedCar.transmission}`
+            ];
+
+            // 遍历汽车信息数组，创建对应的列表项并添加到列表中
+            carInfo.forEach(info => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = info;
+                carInfoList.appendChild(listItem);
+            });
+
+            // 将包含汽车信息的列表添加到容器中
+            carDetailsContainer.appendChild(carInfoList);
+
+            // 创建用于绘制价格波动的 canvas 元素
+            const priceChartCanvas = document.createElement('canvas');
+            priceChartCanvas.id = 'priceChart';
+            carDetailsContainer.appendChild(priceChartCanvas);
+
+            // 将汽车详情容器添加到页面中
+            document.body.appendChild(carDetailsContainer);
+
+            // 绘制价格波动折线图
+            const priceChartContext = priceChartCanvas.getContext('2d');
+            new Chart(priceChartContext, {
+                type: 'line',
+                data: {
+                    labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                    datasets: [{
+                        label: '价格波动',
+                        data: matchedCar.priceData,
+                        borderColor: 'blue',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: false,
+                                min: Math.min(...matchedCar.priceData) * 0.9, // 设置最小值为价格数据的最小值的90%
+                                max: Math.max(...matchedCar.priceData) * 1.1  // 设置最大值为价格数据的最大值的110%
+                            }
+                        }]
+                    }
+                }
+            });
+        } else {
+            carTitle.innerText = '未找到匹配的汽车';
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

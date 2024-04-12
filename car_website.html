@@ -63,14 +63,94 @@
 
         // 汽车数据
         const cars = [
-            { make: '丰田', model: '卡罗拉', price: 20000, year: 2022, fuelType: '汽油', engine: '1.8L四缸', transmission: '手动' },
-            { make: '丰田', model: '凯美瑞', price: 30000, year: 2023, fuelType: '混合动力', engine: '2.5L四缸', transmission: '自动' },
-            { make: '本田', model: '雅阁', price: 25000, year: 2021, fuelType: '混合动力', engine: '2.0L四缸', transmission: '自动' },
-            { make: '本田', model: '思域', price: 22000, year: 2022, fuelType: '汽油', engine: '1.5L四缸', transmission: '手动' },
-            { make: '奥迪', model: 'A4', price: 35000, year: 2023, fuelType: '汽油', engine: '2.0T四缸', transmission: '自动' },
-            { make: '奥迪', model: 'Q5', price: 45000, year: 2022, fuelType: '柴油', engine: '3.0T V6', transmission: '自动' },
-            { make: '宝马', model: '3系', price: 40000, year: 2023, fuelType: '柴油', engine: '2.0L四缸', transmission: '自动' },
-            { make: '宝马', model: 'X5', price: 55000, year: 2022, fuelType: '混合动力', engine: '3.0L V6', transmission: '自动' },
+            { 
+                make: '丰田', 
+                model: '卡罗拉', 
+                price: 20000, 
+                year: 2022, 
+                fuelType: '汽油', 
+                engine: '1.8L四缸', 
+                transmission: '手动',
+                image: './src/images/car1.jpg',
+                priceData: [18000, 19000, 20000, 21000, 22000, 23000] 
+            },
+            { 
+                make: '丰田', 
+                model: '凯美瑞', 
+                price: 30000, 
+                year: 2023, 
+                fuelType: '混合动力', 
+                engine: '2.5L四缸', 
+                transmission: '自动',
+                image: './src/images/car2.jpg',
+                priceData: [28000, 29000, 30000, 31000, 32000, 33000] 
+            },
+            { 
+                make: '本田', 
+                model: '雅阁', 
+                price: 25000, 
+                year: 2021, 
+                fuelType: '混合动力', 
+                engine: '2.0L四缸', 
+                transmission: '自动',
+                image: './src/images/car3.jpg',
+                priceData: [23000, 24000, 25000, 26000, 27000, 28000] 
+            },
+            { 
+                make: '本田', 
+                model: '思域', 
+                price: 22000, 
+                year: 2022, 
+                fuelType: '汽油', 
+                engine: '1.5L四缸', 
+                transmission: '手动',
+                image: './src/images/car4.jpg',
+                priceData: [20000, 21000, 22000, 23000, 24000, 25000] 
+            },
+            { 
+                make: '奥迪', 
+                model: 'A4', 
+                price: 35000, 
+                year: 2023, 
+                fuelType: '汽油', 
+                engine: '2.0T四缸', 
+                transmission: '自动',
+                image: './src/images/car5.jpg',
+                priceData: [33000, 34000, 35000, 36000, 37000, 38000] 
+            },
+            { 
+                make: '奥迪', 
+                model: 'Q5', 
+                price: 45000, 
+                year: 2022, 
+                fuelType: '柴油', 
+                engine: '3.0T V6', 
+                transmission: '自动',
+                image: './src/images/car6.jpg',
+                priceData: [43000, 44000, 45000, 46000, 47000, 48000] 
+            },
+            { 
+                make: '宝马', 
+                model: '3系', 
+                price: 40000, 
+                year: 2023, 
+                fuelType: '柴油', 
+                engine: '2.0L四缸', 
+                transmission: '自动',
+                image: './src/images/car7.jpg',
+                priceData: [38000, 39000, 40000, 41000, 42000, 43000] 
+            },
+            { 
+                make: '宝马', 
+                model: 'X5', 
+                price: 55000, 
+                year: 2022, 
+                fuelType: '混合动力', 
+                engine: '3.0L V6', 
+                transmission: '自动',
+                image: './src/images/car8.jpg',
+                priceData: [53000, 54000, 55000, 56000, 57000, 58000] 
+            },
             // 添加更多汽车数据
         ];
 
@@ -102,13 +182,19 @@
                 carDiv.style.padding = '10px'; // 添加内边距
                 carDiv.style.backgroundColor = '#f8f9fa'; // 添加背景颜色
                 carDiv.innerHTML = `
-                    <p>品牌: ${car.make}</p>
-                    <p>型号: ${car.model}</p>
-                    <p>价格: ￥${car.price}</p>
-                    <p>年份: ${car.year}</p>
-                    <p>燃料类型: ${car.fuelType}</p>
-                    <p>发动机: ${car.engine}</p>
-                    <p>变速器: ${car.transmission}</p>
+                    <div style="display: flex;">
+                        <img src="${car.image}" alt="${car.make} ${car.model}" style="width: 350px; height: auto; margin-right: 10px;">
+                        <div>
+                            <p>品牌: ${car.make}</p>
+                            <p>型号: ${car.model}</p>
+                            <p>价格: ￥${car.price}</p>
+                            <p>年份: ${car.year}</p>
+                            <p>燃料类型: ${car.fuelType}</p>
+                            <p>发动机: ${car.engine}</p>
+                            <p>变速器: ${car.transmission}</p>
+                            <a href="car_details.html?make=${car.make}&model=${car.model}" id="${car.make}${car.model}">详情页</a>
+                        </div>
+                    </div>
                 `;
                 carDiv.style.border = '1px solid #ccc';
                 carDiv.style.padding = '10px';
