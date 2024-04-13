@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Car Company</title>
-    <link rel="stylesheet" href="styles.css"> <!-- 链接外部样式表 -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
     <script src="./chart.js"></script>
 </head>
 
@@ -13,145 +13,145 @@
     <header style="text-align: center;">
         <h1 onclick="window.location.href='car_website.html'">My Car Company</h1>
     </header>
-    <h1 id="carTitle">汽车详情</h1>
+    <h1 id="carTitle">Car Details</h1>
 
     <script>
-        // 汽车数据
+        // Car data
         const cars = [
             {
-                make: '丰田',
-                model: '卡罗拉',
+                make: 'Toyota',
+                model: 'Corolla',
                 price: 20000,
                 year: 2022,
-                fuelType: '汽油',
-                engine: '1.8L四缸',
-                transmission: '手动',
+                fuelType: 'Gasoline',
+                engine: '1.8L Inline-4',
+                transmission: 'Manual',
                 image: './src/images/car1.jpg',
                 priceData: [21000, 22000, 23000, 19000, 18000, 20000],
                 comments: [
-                    { author: '小明', timestamp: '2024-04-12 09:00', content: '这辆车看起来很酷！' },
-                    { author: '小红', timestamp: '2024-04-12 09:30', content: '价格好像有点高啊...' },
-                    { author: '小刚', timestamp: '2024-04-12 10:00', content: '我喜欢这款车的设计！' }
+                    { author: 'John', timestamp: '2024-04-12 09:00', content: 'This car looks cool!' },
+                    { author: 'Jane', timestamp: '2024-04-12 09:30', content: 'The price seems a bit high...' },
+                    { author: 'Bob', timestamp: '2024-04-12 10:00', content: 'I like the design of this car!' }
                 ]
             },
             {
-                make: '丰田',
-                model: '凯美瑞',
+                make: 'Toyota',
+                model: 'Camry',
                 price: 32000,
                 year: 2023,
-                fuelType: '混合动力',
-                engine: '2.5L四缸',
-                transmission: '自动',
+                fuelType: 'Hybrid',
+                engine: '2.5L Inline-4',
+                transmission: 'Automatic',
                 image: './src/images/car2.jpg',
                 priceData: [31000, 30000, 33000, 28000, 29000, 32000],
                 comments: [
-                    { author: '小王', timestamp: '2024-04-12 11:00', content: '这款车的燃油经济性怎么样？' },
-                    { author: '小张', timestamp: '2024-04-12 11:30', content: '有没有安全配置？' }
+                    { author: 'Tom', timestamp: '2024-04-12 11:00', content: 'How is the fuel economy of this car?' },
+                    { author: 'Sarah', timestamp: '2024-04-12 11:30', content: 'Does it have safety features?' }
                 ]
             },
             {
-                make: '本田',
-                model: '雅阁',
+                make: 'Honda',
+                model: 'Accord',
                 price: 26000,
                 year: 2021,
-                fuelType: '混合动力',
-                engine: '2.0L四缸',
-                transmission: '自动',
+                fuelType: 'Hybrid',
+                engine: '2.0L Inline-4',
+                transmission: 'Automatic',
                 image: './src/images/car3.jpg',
                 priceData: [24000, 27000, 25000, 28000, 23000, 26000],
                 comments: [
-                    { author: '小李', timestamp: '2024-04-12 12:00', content: '这车的舒适性怎么样？' },
-                    { author: '小王', timestamp: '2024-04-12 12:30', content: '内部空间够大吗？' }
+                    { author: 'Chris', timestamp: '2024-04-12 12:00', content: 'How comfortable is this car?' },
+                    { author: 'Emma', timestamp: '2024-04-12 12:30', content: 'Is the interior spacious enough?' }
                 ]
             },
             {
-                make: '本田',
-                model: '思域',
+                make: 'Honda',
+                model: 'Civic',
                 price: 24000,
                 year: 2022,
-                fuelType: '汽油',
-                engine: '1.5L四缸',
-                transmission: '手动',
+                fuelType: 'Gasoline',
+                engine: '1.5L Inline-4',
+                transmission: 'Manual',
                 image: './src/images/car4.jpg',
                 priceData: [22000, 20000, 25000, 23000, 21000, 24000],
                 comments: [
-                    { author: '小张', timestamp: '2024-04-12 13:00', content: '这款车的操控性怎么样？' },
-                    { author: '小刘', timestamp: '2024-04-12 13:30', content: '有没有运动版的配置？' }
+                    { author: 'Alice', timestamp: '2024-04-12 13:00', content: 'How is the handling of this car?' },
+                    { author: 'David', timestamp: '2024-04-12 13:30', content: 'Does it come with a sport package?' }
                 ]
             },
             {
-                make: '奥迪',
+                make: 'Audi',
                 model: 'A4',
                 price: 35000,
                 year: 2023,
-                fuelType: '汽油',
-                engine: '2.0T四缸',
-                transmission: '自动',
+                fuelType: 'Gasoline',
+                engine: '2.0L Turbo Inline-4',
+                transmission: 'Automatic',
                 image: './src/images/car5.jpg',
                 priceData: [36000, 38000, 33000, 34000, 37000, 35000],
                 comments: [
-                    { author: '小王', timestamp: '2024-04-12 14:00', content: '这款车的内饰怎么样？' },
-                    { author: '小李', timestamp: '2024-04-12 14:30', content: '后排空间够大吗？' }
+                    { author: 'James', timestamp: '2024-04-12 14:00', content: 'How is the interior of this car?' },
+                    { author: 'Emily', timestamp: '2024-04-12 14:30', content: 'Is the rear space spacious enough?' }
                 ]
             },
             {
-                make: '奥迪',
+                make: 'Audi',
                 model: 'Q5',
                 price: 45000,
                 year: 2022,
-                fuelType: '柴油',
-                engine: '3.0T V6',
-                transmission: '自动',
+                fuelType: 'Diesel',
+                engine: '3.0L Turbo V6',
+                transmission: 'Automatic',
                 image: './src/images/car6.jpg',
                 priceData: [46000, 44000, 47000, 43000, 48000, 45000],
                 comments: [
-                    { author: '小刚', timestamp: '2024-04-12 15:00', content: '这辆车的性能怎么样？' },
-                    { author: '小明', timestamp: '2024-04-12 15:30', content: '能不能说说车内的科技配置？' }
+                    { author: 'Kevin', timestamp: '2024-04-12 15:00', content: 'How is the performance of this car?' },
+                    { author: 'Olivia', timestamp: '2024-04-12 15:30', content: 'Can you talk about the tech features in the car?' }
                 ]
             },
             {
-                make: '宝马',
-                model: '3系',
+                make: 'BMW',
+                model: '3 Series',
                 price: 41000,
                 year: 2023,
-                fuelType: '柴油',
-                engine: '2.0L四缸',
-                transmission: '自动',
+                fuelType: 'Diesel',
+                engine: '2.0L Inline-4',
+                transmission: 'Automatic',
                 image: './src/images/car7.jpg',
                 priceData: [42000, 40000, 39000, 38000, 43000, 41000],
                 comments: [
-                    { author: '小红', timestamp: '2024-04-12 16:00', content: '这款车的性价比怎么样？' },
-                    { author: '小刘', timestamp: '2024-04-12 16:30', content: '有没有运动版的配置？' }
+                    { author: 'Liam', timestamp: '2024-04-12 16:00', content: 'How is the value for money of this car?' },
+                    { author: 'Sophia', timestamp: '2024-04-12 16:30', content: 'Does it come with a sport package?' }
                 ]
             },
             {
-                make: '宝马',
+                make: 'BMW',
                 model: 'X5',
                 price: 58000,
                 year: 2022,
-                fuelType: '混合动力',
+                fuelType: 'Hybrid',
                 engine: '3.0L V6',
-                transmission: '自动',
+                transmission: 'Automatic',
                 image: './src/images/car8.jpg',
                 priceData: [55000, 57000, 54000, 53000, 56000, 58000],
                 comments: [
-                    { author: '小张', timestamp: '2024-04-12 17:00', content: '这款车的越野性能怎么样？' },
-                    { author: '小李', timestamp: '2024-04-12 17:30', content: '能不能说说省油性能？' }
+                    { author: 'Mia', timestamp: '2024-04-12 17:00', content: 'How is the off-road performance of this car?' },
+                    { author: 'Noah', timestamp: '2024-04-12 17:30', content: 'Can you talk about the fuel efficiency?' }
                 ]
             }
-            // 添加更多汽车数据
+            // Add more car data
         ];
 
-        // 获取URL中的查询参数
+        // Get query parameters from URL
         const urlParams = new URLSearchParams(window.location.search);
         const make = urlParams.get('make');
         const model = urlParams.get('model');
 
-        // 在控制台打印查询参数
+        // Print query parameters to console
         console.log('make:', make);
         console.log('model:', model);
 
-        // 查找匹配的汽车数据
+        // Find matching car data
         let matchedCar = null;
         for (const car of cars) {
             if (car.make === make && car.model === model) {
@@ -160,61 +160,61 @@
             }
         }
 
-        // 在网页中展示汽车详情
+        // Show car details on the webpage
         const carTitle = document.getElementById('carTitle');
         if (matchedCar) {
-            carTitle.innerText = `${matchedCar.make} ${matchedCar.model} 详情`;
+            carTitle.innerText = `${matchedCar.make} ${matchedCar.model} Details`;
 
-            // 创建一个容器来包含汽车图片和其他信息
+            // Create a container to hold the car image and other information
             const carDetailsContainer = document.createElement('div');
             carDetailsContainer.classList.add('car-details-container');
 
-            // 创建图片元素
+            // Create image element
             const imageElement = document.createElement('img');
             imageElement.src = matchedCar.image;
             imageElement.alt = `${matchedCar.make} ${matchedCar.model}`;
             carDetailsContainer.appendChild(imageElement);
 
-            // 创建一个包含汽车信息的列表
+            // Create a list to hold car information
             const carInfoList = document.createElement('ul');
 
-            // 创建包含汽车信息的数组
+            // Create an array of car information
             const carInfo = [
-                `品牌: ${matchedCar.make}`,
-                `型号: ${matchedCar.model}`,
-                `价格: ￥${matchedCar.price}`,
-                `年份: ${matchedCar.year}`,
-                `燃料类型: ${matchedCar.fuelType}`,
-                `发动机: ${matchedCar.engine}`,
-                `变速器: ${matchedCar.transmission}`
+                `Make: ${matchedCar.make}`,
+                `Model: ${matchedCar.model}`,
+                `Price: $${matchedCar.price}`,
+                `Year: ${matchedCar.year}`,
+                `Fuel Type: ${matchedCar.fuelType}`,
+                `Engine: ${matchedCar.engine}`,
+                `Transmission: ${matchedCar.transmission}`
             ];
 
-            // 遍历汽车信息数组，创建对应的列表项并添加到列表中
+            // Loop through car information array, create corresponding list items, and add them to the list
             carInfo.forEach(info => {
                 const listItem = document.createElement('li');
                 listItem.innerHTML = info;
                 carInfoList.appendChild(listItem);
             });
 
-            // 将包含汽车信息的列表添加到容器中
+            // Add the list of car information to the container
             carDetailsContainer.appendChild(carInfoList);
 
-            // 创建用于绘制价格波动的 canvas 元素
+            // Create a canvas element for drawing price fluctuation
             const priceChartCanvas = document.createElement('canvas');
             priceChartCanvas.id = 'priceChart';
             carDetailsContainer.appendChild(priceChartCanvas);
 
-            // 将汽车详情容器添加到页面中
+            // Add the car details container to the page
             document.body.appendChild(carDetailsContainer);
 
-            // 绘制价格波动折线图
+            // Draw price fluctuation line chart
             const priceChartContext = priceChartCanvas.getContext('2d');
             new Chart(priceChartContext, {
                 type: 'line',
                 data: {
                     labels: ['2023.11', '2023.12', '2024.1', '2024.2', '2024.3', '2024.4'],
                     datasets: [{
-                        label: '价格波动',
+                        label: 'Price Fluctuation',
                         data: matchedCar.priceData,
                         borderColor: 'blue',
                         borderWidth: 2,
@@ -228,51 +228,51 @@
                         yAxes: [{
                             ticks: {
                                 beginAtZero: false,
-                                min: Math.min(...matchedCar.priceData) * 0.9, // 设置最小值为价格数据的最小值的90%
-                                max: Math.max(...matchedCar.priceData) * 1.1  // 设置最大值为价格数据的最大值的110%
+                                min: Math.min(...matchedCar.priceData) * 0.9,
+                                max: Math.max(...matchedCar.priceData) * 1.1
                             }
                         }]
                     }
                 }
             });
 
-            // 创建讨论区
+            // Create discussion area
             const discussionArea = document.createElement('div');
             discussionArea.classList.add('discussion-area');
 
-            // 添加标题
+            // Add title
             const discussionTitle = document.createElement('h2');
-            discussionTitle.innerText = '讨论区';
+            discussionTitle.innerText = 'Discussion Area';
             discussionArea.appendChild(discussionTitle);
 
-            // 创建评论表单
+            // Create comment form
             const commentForm = document.createElement('form');
             commentForm.classList.add('comment-form');
 
-            // 创建评论输入框
+            // Create comment input
             const commentInput = document.createElement('textarea');
             commentInput.setAttribute('rows', '4');
             commentInput.setAttribute('cols', '50');
-            commentInput.setAttribute('placeholder', '发表评论...');
+            commentInput.setAttribute('placeholder', 'Post a comment...');
             commentForm.appendChild(commentInput);
 
-            // 创建提交按钮
+            // Create submit button
             const submitButton = document.createElement('button');
             submitButton.setAttribute('type', 'submit');
-            submitButton.innerText = '提交';
+            submitButton.innerText = 'Submit';
             commentForm.appendChild(submitButton);
 
-            // 添加评论表单到讨论区
+            // Add comment form to discussion area
             discussionArea.appendChild(commentForm);
 
-            // 加载评论
+            // Load comments
             const commentList = document.createElement('ul');
             commentList.classList.add('comment-list');
             matchedCar.comments.forEach(comment => {
                 const commentItem = document.createElement('li');
                 const commentInfo = document.createElement('div');
                 commentInfo.classList.add('comment-info');
-                commentInfo.innerHTML = `<strong>${comment.author}</strong> 发布于 ${comment.timestamp}`;
+                commentInfo.innerHTML = `<strong>${comment.author}</strong> posted on ${comment.timestamp}`;
                 const commentContent = document.createElement('div');
                 commentContent.classList.add('comment-content');
                 commentContent.innerText = comment.content;
@@ -281,15 +281,15 @@
                 commentList.appendChild(commentItem);
             });
 
-            // 添加评论列表到讨论区
+            // Add comment list to discussion area
             discussionArea.appendChild(commentList);
 
-            // 将讨论区添加到汽车详情容器中
+            // Add discussion area to the car details container
             carDetailsContainer.appendChild(discussionArea);
 
 
         } else {
-            carTitle.innerText = '未找到匹配的汽车';
+            carTitle.innerText = 'No matching car found';
         }
 
 
