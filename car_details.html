@@ -236,6 +236,70 @@
                 }
             });
 
+            // Add a section for recommending other cars at a similar price point
+            const recommendCars = document.createElement('div');
+            recommendCars.classList.add('recommend-cars');
+
+            // Add title
+            const recommendTitle = document.createElement('h2');
+            recommendTitle.innerText = 'Other Cars at a Similar Price Point';
+            recommendCars.appendChild(recommendTitle);
+
+            // Create a container for the recommended cars
+            const recommendCardContainer = document.createElement('div');
+            recommendCardContainer.classList.add('recommend-card-container');
+
+            // Find other cars with a similar price
+            const similarCars = cars.filter(car => Math.abs(car.price - matchedCar.price) < 10000 && car.make !== matchedCar.make && car.model !== matchedCar.model);
+
+            // Loop through similar cars array and create cards for each car
+            similarCars.forEach(car => {
+                // Create a card for the car
+                const card = document.createElement('div');
+                card.classList.add('recommend-card');
+
+                // Create image element
+                const image = document.createElement('img');
+                image.src = car.image;
+                image.alt = `${car.make} ${car.model}`;
+                card.appendChild(image);
+
+                // Create details for the car
+                const details = document.createElement('div');
+                details.classList.add('recommend-card-details');
+
+                // Add make and model
+                const makeModel = document.createElement('p');
+                makeModel.innerText = `${car.make} ${car.model}`;
+                details.appendChild(makeModel);
+
+                // Add price
+                const price = document.createElement('p');
+                price.innerText = `Price: $${car.price}`;
+                details.appendChild(price);
+
+                // Add details
+                const detailsLink = document.createElement('a');
+                detailsLink.href = `car_details.html?make=${car.make}&model=${car.model}`;
+                detailsLink.textContent = 'Details';
+                detailsLink.id = `${car.make}${car.model}`;
+                details.appendChild(detailsLink);
+
+                // Append details to the card
+                card.appendChild(details);
+
+                
+
+                // Append the card to the container
+                recommendCardContainer.appendChild(card);
+            });
+
+            // Add the container of recommended cars to the section
+            recommendCars.appendChild(recommendCardContainer);
+
+            // Add the section to the car details container
+            carDetailsContainer.appendChild(recommendCars);
+
             // Create discussion area
             const discussionArea = document.createElement('div');
             discussionArea.classList.add('discussion-area');

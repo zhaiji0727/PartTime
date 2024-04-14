@@ -77,7 +77,6 @@ footer {
     padding: 10px;
     text-align: center;
     bottom: 0;
-    width: 100%;
 }
 
 /* 白天模式样式 */
@@ -151,4 +150,31 @@ body.dark-mode {
 
 .comment-list li {
     margin-bottom: 10px;
+}
+
+.recommend-cars {
+    margin-top: 20px;
+    /* Add margin to create space between this section and the rest of the content */
+}
+
+.recommend-card {
+    border: 1px solid black;
+    /* Add border around each card */
+    margin-bottom: 20px;
+    /* Add margin to create space between each card */
+    padding: 10px;
+    /* Add padding inside each card */
+    display: flex;
+    /* Use flexbox for layout */
+    flex-direction: column;
+    /* Arrange content vertically */
+}
+
+.recommend-card img {
+    max-width: 50%;
+    /* Ensure images don't exceed the width of the card */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin-bottom: 10px;
+    /* Add margin below the image */
 }
